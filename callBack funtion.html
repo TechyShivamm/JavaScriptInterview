@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>javaScript function</h1>
+    <h2>funtion sequesnce</h2>
+    <p>javaScript function are executed in the sequence they are called</p>
+
+    <p id="demo"></p>
+    <script>
+      function myDispalyer(some) {
+        document.getElementById("demo").innerHTML = some;
+      }
+
+      function myFirst() {
+        myDispalyer("Hello");
+      }
+      function MySecond() {
+        myDispalyer("goodbye");
+      }
+
+      MySecond();
+      myFirst();
+    </script>
+    ----------------------------------------------------
+
+    <h1>JavaScript Function</h1>
+    <h2>function sequence</h2>
+
+    <p>javascript function are executed in the sequence they are called</p>
+    <p id="demo"></p>
+    <script>
+      function myDispalyer(some) {
+        document.getElementById("demo").innerHTML = some;
+      }
+      function myCalculater(num1, num2) {
+        let sum = num1 + num2;
+        return sum;
+      }
+
+      let result = myCalculater(5, 5);
+      myDispalyer(result);
+    </script>
+    ------------------------------------------
+
+    <h1>JavaScript Function</h1>
+    <h2>callBack funtion</h2>
+    <p>The result of the calculation</p>
+    <p id="demo"></p>
+    <script>
+      function myDispalyer(somthing) {
+        document.getElementById("demo").innerHTML = somthing;
+      }
+      function myCalculater(num1, num2, myCallback) {
+        let sum = num1 + num2;
+        myCallback(sum);
+      }
+
+      myCalculater(5, 5, myDispalyer);
+    </script>
+  </body>
+</html>

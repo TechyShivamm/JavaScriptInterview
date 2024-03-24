@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>javaScript promise object</h1>
+    <h2>the then() Method</h2>
+    <p id="demo"></p>
+    <script>
+      function myDisplay(some) {
+        document.getElementById("demo").innerHTML = some;
+      }
+
+      let myPromise = new Promise(function (resolve, reject) {
+        let x = 0; //5
+        if (x == 0) {
+          resolve("ok");
+        } else {
+          reject("Error");
+        }
+      });
+      myPromise.then(
+        function (data) {
+          console.log(data);
+          myDisplay(data);
+        },
+        function (error) {
+          console.log(error);
+
+          myDisplay(error);
+        }
+      );
+    </script>
+    <!-- ------------------------------- -->
+
+    <h1>javaScript Function</h1>
+    <h2>setInterval() with a callback</h2>
+    <p>wait 10 sec (10000 miliSec)</p>
+    <h1 id="demo1"></h1>
+
+    <script>
+      setTimeout(() => {
+        myFun("Hello i am setInterval");
+      }, 10000);
+
+      function myFun(value) {
+        document.getElementById("demo1").innerHTML = value;
+      }
+    </script>
+    <!-- --------------------- -->
+    <h1>javascritpt promise object</h1>
+    <h2>the then() Method</h2>
+    <p>wait 10 sec for this page to chenge</p>
+    <h1 id="Unique"></h1>
+    <script>
+      const newPromise1 = new Promise(function (res, rej) {
+        setTimeout(() => {
+          res("data showing in 10 sec");
+        }, 10000);
+      });
+      newPromise1.then((data) => {
+        document.getElementById("Unique").innerHTML = data;
+      });
+    </script>
+    <!-- --------------------------- -->
+  </body>
+</html>
