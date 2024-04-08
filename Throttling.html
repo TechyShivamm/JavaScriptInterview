@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      div {
+        width: 500px;
+        height: 500px;
+        background-color: cornflowerblue;
+        border: 1px solid blue;
+        margin: auto;
+        text-align: center;
+        align-items: center;
+      }
+      h2 {
+        color: white;
+        vertical-align: middle;
+        font-size: 40px;
+        font-family: monospace;
+      }
+      body {
+        margin: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div onmousemove="showCount()">
+      <h2 id="nCnt">Normal count :0</h2>
+      <h2 id="nTnt">Throttle count : 0</h2>
+      <h2 id="nDnt">Debounce count :0</h2>
+    </div>
+    <script>
+      let nCnt = 0
+      let nTnt = 0
+      let nDnt = 0
+      let fireThrottle = true
+
+      let nh2 = document.getElementById("nCnt")
+      let th2 = document.getElementById("nTnt")
+      let dh2 = document.getElementById("nDnt")
+
+      function showCount() {
+        normalCount()
+        throttleCount()
+      }
+
+      function normalCount() {
+        nCnt++
+        nh2.innerHTML = "Normal count :" + nCnt
+      }
+      function throttleCount() {
+        if (fireThrottle == true) {
+          nTnt++
+          th2.innerHTML = "Throttle count :" + nTnt
+          fireThrottle = false
+          setTimeout(() => {
+            fireThrottle = true
+          }, 500)
+        }
+      }
+    </script>
+  </body>
+</html>
