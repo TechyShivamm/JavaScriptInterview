@@ -39,7 +39,7 @@
       let nTnt = 0
       let nDnt = 0
       let fireThrottle = true
-
+      let dTimmer
       let nh2 = document.getElementById("nCnt")
       let th2 = document.getElementById("nTnt")
       let dh2 = document.getElementById("nDnt")
@@ -47,6 +47,7 @@
       function showCount() {
         normalCount()
         throttleCount()
+        debounceCount()
       }
 
       function normalCount() {
@@ -62,6 +63,14 @@
             fireThrottle = true
           }, 500)
         }
+      }
+
+      function debounceCount() {
+        window.clearTimeout(dTimmer)
+        dTimmer = setTimeout(() => {
+          nDnt++
+          dh2.innerHTML = "Debounce count :" + nDnt
+        }, 500)
       }
     </script>
   </body>
