@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>ES6 Classes</title>
+  </head>
+
+  <!-- There are three concepts in Object-Oriented Programming Object, Class, and Methods. ES6 JavaScript supports Object-Oriented programming components.  -->
+
+  <!-- Object: A real-time object entity means the presentation of any entity in real-time.
+Class: It is the before the plan of creating any objects which is known as the blueprint of any objects which you want to create.
+Methods: It communicates between the objects. -->
+
+  <!-- Class inheritance: The ES6 Class supports the inheritance. Inheritance has the courage to create entities from existing entities. There are two types of Class in ES6: 
+
+parent class/super class: The class extended to create new class are known as a parent class or super class.
+child/sub classes: The class are newly created are known as child or sub class. Sub class inherit all the properties from parent class except constructor -->
+  <body>
+    <script>
+      class demo {
+        //Constructor
+        constructor(name, estd, rank) {
+          this.n = name
+          this.e = estd
+          this.r = rank
+        }
+        //Funtion(Method)
+        descreaserank() {
+          this.r -= 1
+        }
+      }
+
+      const obj1 = new demo("Shivam", 2021, 53)
+      obj1.descreaserank()
+      console.log(obj1.r)
+
+      // -----------------
+
+      class demo1 {
+        constructor(data) {
+          this.character = data
+        }
+      }
+
+      class childObj extends demo1 {
+        fun() {
+          console.log("No of char is:  " + this.character)
+        }
+      }
+
+      const obj2 = new childObj(1500)
+      console.log(obj2)
+      obj2.fun()
+      console.log(obj2.character)
+
+      class demo3 {
+        doPrint() {
+          console.log("This is doprint() from Parent called")
+        }
+      }
+      class demo4 extends demo3 {
+        doPrint() {
+          super.doPrint()
+          console.log("this doPrint is printitng  string")
+        }
+      }
+
+      const obj3 = new demo4()
+      console.log(obj3)
+      obj3.doPrint()
+    </script>
+  </body>
+</html>
