@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function funtion1(name, desc) {
+        this.name = name
+        this.desc = desc
+      }
+
+      funtion1.prototype.funtion2 = function funtion2() {
+        console.log("i am funtion 2")
+        console.log("function name is", this.name)
+      }
+      funtion1.prototype.funtion3 = function funtion3() {
+        console.log("i am funtion 3")
+        console.log("my des is", this.desc)
+      }
+      const data = new funtion1("shiavm", "Pune")
+      data.funtion2()
+      data.funtion3()
+      console.log(data)
+
+      class NewObj {
+        constructor(name, desc) {
+          this.name = name
+          this.desc = desc
+        }
+        getCommName() {
+          return this.name
+        }
+        getComDes() {
+          return this.desc
+        }
+      }
+      class Childobj extends NewObj {
+        constructor(commName, commDes, name, des) {
+          // super()
+          super(commName, commDes)
+          this.c_name = name
+          this.c_des = des
+        }
+        printValue() {
+          console.log("thisname of comm is:", super.getCommName())
+          console.log("the name of comm is", super.getComDes())
+          console.log("this name of couce is ", this.c_name)
+          console.log("this des of couce is ", this.c_des)
+        }
+      }
+
+      const data1 = new Childobj(
+        "shivammm",
+        "A cS scice portal",
+        "DSA",
+        "A complete DSA to DSA "
+      )
+      data1.printValue()
+    </script>
+  </body>
+</html>
