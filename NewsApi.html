@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>NEWS API Project</title>
+  </head>
+  <body>
+    <nav>
+      <div class="navbar">
+        <a
+          href="NewsApi.html"
+          class="logo"
+          >News.</a
+        >
+        <div class="search-container">
+          <input
+            type="text"
+            id="search-input"
+          />
+          <button id="search-button">Search</button>
+        </div>
+      </div>
+    </nav>
+    <main
+      id="blog-container"
+      class="obj-width"
+    ></main>
+
+    <style>
+      * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+      }
+      body {
+        position: relative;
+      }
+      nav {
+        background-color: rgb(159, 138, 105);
+        box-shadow: 0 7px 10px rgb(0, 0, 0, 0.3);
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.3rem 1rem;
+        gap: 2%;
+      }
+      .obj-width {
+        max-width: 1200px;
+        margin: auto;
+      }
+      .navbar .logo {
+        color: white;
+        text-decoration: none;
+        letter-spacing: 2px;
+        font-size: 2.2rem;
+      }
+      #search-input {
+        max-width: 400px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        color: #333;
+      }
+      #search-button {
+        padding: 10px 20px;
+        background-color: rgb(138, 154, 147);
+        color: #fff;
+        border: none;
+        font-size: 18px;
+        border-radius: 5px;
+        margin-left: 10px;
+      }
+      #blog-container {
+        padding: 3rem 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+      .blog-cart {
+        width: 280px;
+        border: 1px solid #2d4c50;
+        border-radius: 10px;
+        cursor: pointer;
+        padding: 1px;
+        margin: 10px;
+      }
+      .blog-cart :hover {
+        box-shadow: 4px 4px 10px rgb(0, 0, 0, 0.1);
+      }
+      .blog-cart img {
+        border-radius: 10px;
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        margin-bottom: 1rem;
+      }
+      .blog-cart h2 {
+        color: #141414;
+        font-size: 1.7rem;
+        font-weight: 500px;
+      }
+      .blog-cart p {
+        font-size: 1.2rem;
+        padding-top: 0.7rem;
+      }
+    </style>
+    <script>
+      const apiKey = "c15a51f1a3e94c5eb9362ce324118d5f"
+
+      const blogContainer = document.getElementById("blog-container")
+      const searchInput = document.getElementById("search-input")
+      const searchBtn = document.getElementById("search-button")
+
+      async function fetchRandomNews() {
+        try {
+          const apiURL = `https://newsapi.org/v2/top-headlines?country=us&pageSize=20&apikey=${apiKey}`
+          const responce = await fetch(apiURL)
+          const data = await responce.json()
+          console.log(data.articles)
+          return data.articles
+        } catch (error) {
+          console.log("Error featching Rendom News")
+          return []
+        }
+      }
+
+      searchBtn.addEventListener("click", async () => {
+        const Quary = searchInput.value.trim()
+        // console.log(Quary)
+        if (Quary !== "") {
+          try {
+            const articles = await fetchNewsQuary(Quary)
+            displayblogs(Quary)
+          } catch (error) {
+            console.log("Error fatching ny quary", error)
+          }
+        }
+      })
+
+      async function fetchNewsQuary(Quary) {
+        try {
+          const apiURL = `https://newsapi.org/v2/everything?q=${query}&pageSize=10&apikey=${apikey}`
+          const response = await fetch(apiUrl)
+          const responce = await fetch(apiURL)
+          const data = await responce.json()
+          console.log(data.articles)
+          return data.articles
+        } catch (error) {
+          console.log("Error featching Rendom News")
+          return []
+        }
+      }
+
+      function displayblogs(articles) {
+        blogContainer.innerHTML = ""
+        articles.map((articles) => {
+          const blogCard = document.createElement("div")
+          blogCard.classList.add("blog-cart")
+          const img = document.createElement("img")
+          img.src = articles.urlToImage
+          img.alt = articles.title
+
+          const tittle = document.createElement("h2")
+
+          const truncatedTitle =
+            articles.title.length > 30
+              ? articles.title.slice(0, 30) + "...."
+              : articles.tittle
+          tittle.textContent = truncatedTitle
+          const description = document.createElement("p")
+          const truncDes =
+            articles.description.length > 80
+              ? articles.description.slice(0, 80) + "...."
+              : articles.description
+          description.textContent = truncDes
+          blogCard.appendChild(img)
+          blogCard.appendChild(tittle)
+          blogCard.appendChild(description)
+          blogContainer.appendChild(blogCard)
+        })
+      }
+
+      // fetchRandomNews()
+      ;(async () => {
+        try {
+          const articles = await fetchRandomNews()
+          displayblogs(articles)
+        } catch (error) {
+          console.log("Error Fetching random news")
+        }
+      })()
+    </script>
+  </body>
+</html>
