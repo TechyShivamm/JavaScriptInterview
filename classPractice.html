@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Demo {
+        //constructor :- allcotion menory for the object of the class
+
+        constructor(name, age, location) {
+          this.name = name
+          this.age = age
+          this.location = location
+        }
+        // function - action of that object
+        hello() {
+          this.name = "Shivam"
+        }
+      }
+      //class expression
+      const newObj = new Demo("kiran", 30, "BHOPAL")
+      // newObj.hello()
+      console.log(newObj.name)
+      console.log(newObj)
+
+      class demo1 {
+        constructor(n) {
+          this.name = n
+        }
+      }
+      class secondClass extends demo1 {
+        demo1() {
+          console.log("Name of user" + " " + this.name)
+        }
+      }
+
+      var obj = new secondClass("shivam")
+      obj.demo1()
+
+      class Parent {
+        doPrint() {
+          console.log("this is a parent obj called")
+        }
+      }
+      class childObj extends Parent {
+        doPrint() {
+          super.doPrint()
+          console.log("this doprint is for child obj")
+        }
+      }
+
+      var data = new childObj()
+      data.doPrint()
+    </script>
+  </body>
+</html>
