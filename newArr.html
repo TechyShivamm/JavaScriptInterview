@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let numbers = [5, 3, 5, 8, 1, 2, 1, 7, 7]
+
+      function arrSort(data) {
+        const len = data.length
+        // console.log(len)
+        for (i = 0; i < len; i++) {
+          for (j = 0; j < len - 1; j++) {
+            //swap elemet
+            if (data[j] > data[j + 1]) {
+              let temp = data[j]
+              data[j] = data[j + 1]
+              data[j + 1] = temp
+            }
+          }
+        }
+        return (function () {
+          const output = []
+          for (i = 0; i <= data.length; i++) {
+            if (data[i] !== data[i + 1]) {
+              output.push(data[i])
+            }
+          }
+          return output
+        })()
+      }
+
+      const NewStr = "Ashish" //ashi
+
+      const newstr1 = NewStr.split("")
+
+      console.log(arrSort(newstr1).join(""))
+
+      const newArre = [1, 2, 3, 4, 5, 6, 1, 1, 1, 99, 44, 22, 44]
+      console.log(arrSort(newArre))
+    </script>
+  </body>
+</html>
