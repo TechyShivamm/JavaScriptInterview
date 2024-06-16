@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const data = () => console.log("HelloWorld")
+
+      console.log(data)
+      console.log(data())
+
+      const name = [] //array litteral
+
+      const name1 = new Array()
+
+      name1[0] = "shivam"
+      name1.push("sujeet")
+      name1.push(23)
+      console.log(name1)
+
+      const demoArr = new Array("hello", "my", "name", "is", 2222)
+
+      demoArr.push("bhopal")
+      demoArr[0] = 1
+      console.log(demoArr)
+
+      const data2 = new Array(3)
+      console.log(data2.length)
+      console.log(data2)
+
+      const arr3 = []
+      arr3[0] = 1
+      arr3[2] = 3
+
+      arr3.push("shivam")
+      arr3.unshift("sujeet")
+      // arr3.shift()
+      console.log(arr3)
+
+      const newArray = [1, 2, 3, 4, 5, 6]
+      newArray.forEach((data) => console.log(data))
+
+      const nesArray1 = [1, 2, 3, 4, 5]
+      // const spiliceData = nesArray1.splice(1, 3)
+      // console.log(nesArray1)
+      // console.log(spiliceData)
+
+      const splicearr = nesArray1.splice(4, 1, "a", "b")
+      console.log(nesArray1)
+      console.log(splicearr)
+
+      let arrayIntegersOriginal1 = [1, 2, 3, 4, 5]
+      let arrayIntegersOriginal2 = [1, 2, 3, 4, 5]
+      let arrayIntegersOriginal3 = [1, 2, 3, 4, 5]
+
+      // let arrayIntegers1 = arrayIntegersOriginal1.splice(0, 2) // returns [1, 2]; original array: [3, 4, 5]
+      // let arrayIntegers2 = arrayIntegersOriginal2.splice(3) // returns [4, 5]; original array: [1, 2, 3]
+      // let arrayIntegers3 = arrayIntegersOriginal3.splice(3, 1, "a", "b", "c") //returns [4]; original array: [1, 2, 3, "a", "b", "c", 5]
+
+      // let arrayIntegers = [1, 2, 3, 4, 5]
+      // let arrayIntegers1 = arrayIntegers.slice(0, 2) // returns [1,2]
+      // let arrayIntegers2 = arrayIntegers.slice(2, 3) // returns [3]
+      // let arrayIntegers3 = arrayIntegers.slice(4) //returns [5]
+
+      const sliceArr = 12
+      // const slice1 = sliceArr.slice(-3, -1) //(big, last(-1)-small value )
+      // console.log(slice1)
+
+      console.log(Array.isArray(sliceArr))
+      console.log(sliceArr instanceof Array)
+
+      console.log(sliceArr)
+
+      let courses = ["HTML", "CSS", "JavaScript", "React"]
+      const data5 = courses.join(",")
+      console.log(typeof data5)
+
+      const numbers = [1, 2, 3]
+      const user = { name: "John" }
+      Array.isArray(numbers) // true
+      Array.isArray(user) //false
+    </script>
+  </body>
+</html>

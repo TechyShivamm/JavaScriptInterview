@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //object Literal syntax
+
+      const obj1 = {
+        name: "shivam",
+        age: 20,
+      }
+      console.log(obj1)
+      //Using object constructor
+
+      const obj2 = new Object()
+      obj2.name = "Hello"
+      console.log(obj2)
+
+      const obj3 = Object()
+      console.log(obj3)
+      //=========Object create
+
+      const obj4 = Object.create(null)
+      console.log(obj4)
+
+      let vichele = {
+        wheel: 4,
+        fuletype: "Gasoline",
+        color: "Green",
+      }
+      let carProps = {
+        type: {
+          value: "Valkswagaen",
+        },
+        model: {
+          Value: "Golf",
+        },
+      }
+
+      const car = Object.create(vichele, carProps)
+      console.log(car)
+    </script>
+  </body>
+</html>
