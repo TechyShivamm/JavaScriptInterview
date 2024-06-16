@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    1. Question: Write a function that reverses a given string.
+    <!-- Ex :- Tarun o/p:- nurat -->
+
+    <script>
+      // function reverse(data) {
+      //   var result = []
+      //   for (i = 0; i <= data.length / 2; i++) {
+      //     result[0] = data[i]
+      //     data[i] = data[data.length - i - 1]
+      //     data[data.length - i - 1] = result[0]
+      //   }
+      //   return data
+      // }
+      // let arr = [1, 2, 3, 4, 5]
+      // console.log(reverse(arr))
+
+      // Using InBuild Method
+      let str = "Hello"
+      let result = str.split("").reverse().join("")
+      console.log(result)
+
+      // Unsing Without Inbuild Method
+      function reverse(str) {
+        let result = ""
+        for (i = str.length - 1; i >= 0; i--) {
+          result += str[i]
+        }
+        return result
+      }
+      let givenStr = "Hello"
+      console.log(reverse(givenStr))
+    </script>
+  </body>
+</html>
